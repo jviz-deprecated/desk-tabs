@@ -17,9 +17,28 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
       {
         display: inline-block;
         height: 28px;
-        line-height: 30px;
+        line-height: 28px;
+        border-bottom: 2px solid var(--jviz-grey-3);
+        @apply --jviz-font;
+        font-size: 14px;
+        font-weight: bold;
+        color: var(--jviz-navy-4);
+        cursor: pointer;
+        padding-left: 10px;
+        padding-right: 10px;
+        transition: all 0.3s;
+      }
+      :host[selected]
+      {
+        color: var(--jviz-navy);
+        border-bottom-color: var(--jviz-teal-2);
+      }
+      :host:hover
+      {
+        border-bottom-color: var(--jviz-teal-2);
       }
     </style>
+    <content></content>
   </template>
 </dom-module>
 
@@ -30,7 +49,15 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
 
   //Initialize the desk tab properties
   desk_tab.properties = {};
-  desk_tab.properties.selected = { type: Boolean, reflectToAttribute: true, value: false }; 
+  desk_tab.properties.selected = { type: Boolean, reflectToAttribute: true, value: false };
+  desk_tab.properties.color = { type: String, reflectToAttribute: true, value: 'blue', observer: '_update_color' };
+
+  //Update the tab color
+  desk_tab._update_color = function(value)
+  {
+    //Update the default color
+
+  };
 
   //Register the desk tab element
   Polymer(desk_tab);
