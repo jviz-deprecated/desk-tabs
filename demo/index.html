@@ -1,0 +1,40 @@
+<!--
+@license
+Copyright (c) 2016 The Jviz Project Authors. All rights reserved.
+The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob/dev/LICENSE
+-->
+
+<!-- Import components -->
+<link rel="import" href="../desk-tabs.html">
+
+<!-- Test style -->
+<style>
+  html { margin: 50px !important; }
+</style>
+
+<!-- Desk tabs test -->
+<desk-tabs id="test" header="Test tabs">
+  <desk-tab id="tab-home">Home</desk-tab>
+  <desk-tab id="tab-activity">Activity</desk-tab>
+  <desk-tab id="tab-account">Account</desk-tab>
+  <desk-tab id="tab-settings">Settings</desk-tab>
+</desk-tabs>
+
+<!-- Script -->
+<script>
+  //Initialize the tabs element
+  var el = null;
+
+  //Dom ready event
+  jviz.dom.ready(function()
+  {
+    //Initialize the desk-tabs element
+    el = jviz.dom.id('test');
+
+    //Register the tab close event
+    el.addEventListener('tab:close', function(e){ console.log('Closed ' + e.detail.tab); });
+
+    //Register the tab open event
+    el.addEventListener('tab:open', function(e){ console.log('Open tab: ' + e.detail.tab); });
+  });
+</script>
