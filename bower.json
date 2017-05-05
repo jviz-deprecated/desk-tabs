@@ -1,0 +1,13 @@
+{
+  "name": "desk-tabs",
+  "description": "Desktop tabs element",
+  "ignore": [ "**/.*", "node_modules", "bower_components" ],
+  "dependencies":
+  {
+    "jviz-styles": "jviz/jviz-styles#dev",
+    "desk-styles": "jviz/desk-styles#dev"
+  },
+  "license": "MIT",
+  "authors": [ "Josemi Juanes <josemijuanes@gmail.com>" ],
+  "keywords": [ "jviz", "webcomponents", "jviz-components", "desk", "desk-components", "tabs" ]
+}
