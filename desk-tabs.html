@@ -41,7 +41,7 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
     <template is="dom-if" if="{{ header }}">
       <div class="header">{{ header }}</div>
     </template>
-    <div class="tabs" on-tap="_tap">
+    <div id="tabs" class="tabs" on-tap="_tap">
       <content select="desk-tab"></content>
     </div>
   </template>
@@ -66,17 +66,28 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
     //Check if the tab has an id value
     if(e.target.id === null){ return; }
 
-    //Get the tab id
-    console.log('Clicked on tab ' + e.target.id);
-
     //Update the selected tab
     this.selected = e.target.id;
   };
 
   //Update the selected tab
-  desk_tabs._update_selected = function(value)
+  desk_tabs._update_selected = function(new_value, old_value)
   {
-    //
+    //Check for undefined old value
+    if(typeof old_value === 'string')
+    {
+      //Deselect the old tab
+      this.$.tabs.querySelector('#' + old_value).selected = false;
+
+      //Emit the tab close event
+      this.fire('tab:close', { tab: old_value });
+    }
+
+    //Select the new tab
+    this.$.tabs.querySelector('#' + new_value).selected = true;
+
+    //Emit the tab open event
+    this.fire('tab:open', { tab: new_value });
   };
 
   //Register the desktop tabs element
