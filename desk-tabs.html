@@ -12,6 +12,9 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
 <!-- Import desk components -->
 <link rel="import" href="../desk-styles/desk-styles.html">
 
+<!-- Import tabs elements -->
+<link rel="import" href="./desk-tab.html">
+
 <!-- Desktop tabs element -->
 <dom-module id="desk-tabs">
   <template>
@@ -34,7 +37,7 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
     <template is="dom-if" if="{{ header }}">
       <div class="header">{{ header }}</div>
     </template>
-    <content></content>
+    <content select="desk-tab"></content>
   </template>
 </dom-module>
 
