@@ -18,9 +18,23 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
     <style>
       :host
       {
-
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid var(--jviz-grey-3);
+      }
+      :host .header
+      {
+        display: block;
+        @apply --jviz-heading-3;
+        line-height: 50px !important;
+        height: 50px !important;
+        margin: 0px !important;
       }
     </style>
+    <template is="dom-if" if="{{ header }}">
+      <div class="header">{{ header }}</div>
+    </template>
+    <content></content>
   </template>
 </dom-module>
 
@@ -28,6 +42,10 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
 <script>
   //Initialize the desktop tabs object
   var desk_tabs = { is: 'desk-tabs' };
+
+  //Tabs properties
+  desk_tabs.properties = {};
+  desk_tabs.properties.header = { type: String, reflectToAttribute: true };
 
   //Register the desktop tabs element
   Polymer(desk_tabs);
