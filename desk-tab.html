@@ -1,0 +1,37 @@
+<!--
+@license
+Copyright (c) 2016 The Jviz Project Authors. All rights reserved.
+The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob/dev/LICENSE
+-->
+
+<!-- Import components -->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../jviz/jviz.html">
+<link rel="import" href="../jviz-styles/jviz-styles.html">
+
+<!-- Tab element -->
+<dom-module id="desk-tab">
+  <template>
+    <style>
+      :host
+      {
+        display: inline-block;
+        height: 28px;
+        line-height: 30px;
+      }
+    </style>
+  </template>
+</dom-module>
+
+<!-- Desk tab logic -->
+<script>
+  //Initialize the desk tab element
+  var desk_tab = { is: 'desk-tab' };
+
+  //Initialize the desk tab properties
+  desk_tab.properties = {};
+  desk_tab.properties.selected = { type: Boolean, reflectToAttribute: true, value: false }; 
+
+  //Register the desk tab element
+  Polymer(desk_tab);
+</script>
