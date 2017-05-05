@@ -33,11 +33,17 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
         height: 50px !important;
         margin: 0px !important;
       }
+      :host .tabs
+      {
+        margin-top: 5px;
+      }
     </style>
     <template is="dom-if" if="{{ header }}">
       <div class="header">{{ header }}</div>
     </template>
-    <content select="desk-tab"></content>
+    <div class="tabs" on-tap="_tap">
+      <content select="desk-tab"></content>
+    </div>
   </template>
 </dom-module>
 
@@ -49,6 +55,29 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
   //Tabs properties
   desk_tabs.properties = {};
   desk_tabs.properties.header = { type: String, reflectToAttribute: true };
+  desk_tabs.properties.selected = { type: String, reflectToAttribute: true, observer: '_update_selected' };
+
+  //Tap event capture
+  desk_tabs._tap = function(e)
+  {
+    //check the tag name
+    if(e.target.tagName.toLowerCase() !== 'desk-tab'){ return; }
+
+    //Check if the tab has an id value
+    if(e.target.id === null){ return; }
+
+    //Get the tab id
+    console.log('Clicked on tab ' + e.target.id);
+
+    //Update the selected tab
+    this.selected = e.target.id;
+  };
+
+  //Update the selected tab
+  desk_tabs._update_selected = function(value)
+  {
+    //
+  };
 
   //Register the desktop tabs element
   Polymer(desk_tabs);
