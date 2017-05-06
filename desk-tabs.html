@@ -74,7 +74,7 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
   desk_tabs._update_selected = function(new_value, old_value)
   {
     //Check for undefined old value
-    if(typeof old_value === 'string')
+    if(typeof old_value === 'string' && old_value !== null)
     {
       //Deselect the old tab
       this.$.tabs.querySelector('#' + old_value).selected = false;
@@ -83,11 +83,15 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
       this.fire('tab:close', { tab: old_value });
     }
 
-    //Select the new tab
-    this.$.tabs.querySelector('#' + new_value).selected = true;
+    //Check the new value
+    if(typeof new_value === 'string' && new_value !== null)
+    {
+      //Select the new tab
+      this.$.tabs.querySelector('#' + new_value).selected = true;
 
-    //Emit the tab open event
-    this.fire('tab:open', { tab: new_value });
+      //Emit the tab open event
+      this.fire('tab:open', { tab: new_value });
+    }
   };
 
   //Register the desktop tabs element
