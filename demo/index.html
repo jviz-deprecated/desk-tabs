@@ -5,6 +5,7 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
 -->
 
 <!-- Import components -->
+<link rel="import" href="../../jviz-btn/jviz-btn.html">
 <link rel="import" href="../desk-tabs.html">
 
 <!-- Test style -->
@@ -13,7 +14,9 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
 </style>
 
 <!-- Desk tabs test -->
-<desk-tabs id="test" header="Test tabs">
+<desk-tabs id="test" header="Test tabs" has-header>
+  <jviz-btn id="button" text="Test button 1" color="green"></jviz-btn>
+  <jviz-btn id="button" text="Test button 2" color="blue" style="margin-left:5px;"></jviz-btn>
   <desk-tab id="tab-home">Home</desk-tab>
   <desk-tab id="tab-activity">Activity</desk-tab>
   <desk-tab id="tab-account">Account</desk-tab>
