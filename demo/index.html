@@ -35,9 +35,9 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
     el = jviz.dom.id('test');
 
     //Register the tab close event
-    el.addEventListener('tab:close', function(e){ console.log('Closed ' + e.detail.tab); });
+    el.addEventListener('tab-close', function(e){ console.log('Closed ' + e.detail.tab); });
 
     //Register the tab open event
-    el.addEventListener('tab:open', function(e){ console.log('Open tab: ' + e.detail.tab); });
+    el.addEventListener('tab-open', function(e){ console.log('Open tab: ' + e.detail.tab); });
   });
 </script>
