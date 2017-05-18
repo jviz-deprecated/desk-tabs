@@ -101,7 +101,7 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
       this.$.tabs.querySelector('#' + old_value).selected = false;
 
       //Emit the tab close event
-      this.fire('tab:close', { tab: old_value });
+      this.fire('tab-close', { tab: old_value });
     }
 
     //Check the new value
@@ -111,7 +111,7 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
       this.$.tabs.querySelector('#' + new_value).selected = true;
 
       //Emit the tab open event
-      this.fire('tab:open', { tab: new_value });
+      this.fire('tab-open', { tab: new_value });
     }
   };
 
